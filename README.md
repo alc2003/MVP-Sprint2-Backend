@@ -1,12 +1,9 @@
 # Meu MVP - Terminal de triagem
 
-Este projeto consiste em um protótipo de um terminal de triagem para classificação de risco de um hospital.
-Onde o paciente chegaao hospital, 
-informa o seus dados no terminal, 
-o sistema encontra o paciente na base, 
-e então, um enfermeiro realizará um atendimento para classifica-lo na ordem, seguindo alguns protocolo de enfermagem.
+Este projeto consiste em um protótipo de um terminal de cadastro de pacientes.
+Para simular o cadastro dospacientes do front react.(https://github.com/alc2003/MVP-Sprint2-Frontend)
 
-Obs: Devido ao fato de este sistema ser apenas um protótipo, a classificação é gerada de modo randomico.
+
 ---
 ## Como executar 
 
