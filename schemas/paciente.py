@@ -16,6 +16,7 @@ class PacienteSchema(BaseModel):
     sexo: str = "M"
     endereco: str = "Rua tal, numero 44"
     telefone: str = "(67)999-9999"
+    cep: str = "79000-000" 
     
 class PacienteBuscaSchema(BaseModel):
     """ Define como deve ser a estrutura que representa a busca. Que será
@@ -38,7 +39,8 @@ def apresenta_pacientes(pacientes: List[Paciente]):
             "id": paciente.id,
             "nome": paciente.nome,
             "cns": paciente.cns,            
-            "telefone": paciente.telefone,            
+            "telefone": paciente.telefone,     
+            "cep": paciente.cep       
         })
 
     return {"pacientes": result}
@@ -50,6 +52,7 @@ class PacienteViewSchema(BaseModel):
     nome: str = "JOSEyyyy"
     cns: str = "111111111111"
     telefone: str = "9999-9999"
+    cep: str = "79000-000"
          
 
 class PacienteDelSchema(BaseModel):
@@ -68,6 +71,7 @@ def apresenta_paciente(paciente: Paciente):
         "nome": paciente.nome,
         "cns": paciente.cns,
         "telefone": paciente.telefone,
+        "cep": paciente.cep
         
     }
 

@@ -32,23 +32,24 @@ def add_paciente(form: PacienteSchema):
     """Adiciona um novo Paciente à base de dados
     Retorna uma representação dos pacientes e atendimentos associados.
     """
-    logger.warning("teste", form)
+    #logger.warning("teste", form)
     paciente = Paciente(
         #id=form.id,
         cns = form.cns,
-        nome = form.nome,
+        nome = form.nome,  
         sexo = form.sexo,
         endereco = form.endereco,
-        telefone = form.telefone)
+        telefone = form.telefone,
+        cep = form.cep)
     
     logger.debug(f"Adicionando paciente de nome: '{paciente.nome}'")
     try:
         # criando conexão com a base
         session = Session()
-        logger.warning("start add", paciente);
+        logger.warning("start add: %s", paciente);
         # adicionando paciente
         session.add(paciente)
-        logger.warning("end add", paciente);
+        logger.warning("end add: %s", paciente)
         # efetivando o comando de adição de novo item na tabela
         session.commit()
         logger.debug(f"Adicionado paciente de nome: '{paciente.nome}'")
@@ -108,6 +109,7 @@ def alterar_paciente(form: PacienteSchema):
         paciente.nome = form.nome
         paciente.cns = form.cns
         paciente.telefone = form.telefone
+        paciente.cep = form.cep
 
         # Confirma a transação
         session.commit()

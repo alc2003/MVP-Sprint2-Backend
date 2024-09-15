@@ -15,6 +15,7 @@ class Paciente(Base):
     sexo = Column(String(1))
     endereco = Column(String(140))
     telefone = Column(String(30))
+    cep = Column(String(9))  
     data_insercao = Column(DateTime, default=datetime.now())
 
     # Definição do relacionamento entre o paciente e o atendimento.
@@ -26,7 +27,7 @@ class Paciente(Base):
 
     def init(self, nome:str, cns:str, 
                  sexo:str, endereco:str, telefone:str,
-                 data_insercao:Union[DateTime, None] = None):
+                 cep:str, data_insercao:Union[DateTime, None] = None):
         """
         Cria um Paciente
 
@@ -36,6 +37,7 @@ class Paciente(Base):
             sexo: Sexo do Paciente
             endereco: Endereço Completo do Paciente
             telefone: Telefone de contato do Paciente
+            cep: Código de Endereçamento Postal
             data_insercao: data de quando o paciente foi inserido à base
         """
 
@@ -44,6 +46,7 @@ class Paciente(Base):
         self.sexo = sexo
         self.endereco = endereco
         self.telefone = telefone
+        self.cep = cep
 
         #se não for informada, será o data exata da inserção no banco
         if data_insercao:

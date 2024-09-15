@@ -12,6 +12,8 @@ Será necessário ter todas as libs python listadas no `requirements.txt` instal
 Após clonar o repositório, é necessário ir ao diretório raiz, pelo terminal, para poder executar os comandos descritos abaixo.
 
 > É fortemente indicado o uso de ambientes virtuais do tipo [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html).
+python -m venv env 
+.\env\Scripts\activate  
 
 ```
 (env)$ pip install -r requirements.txt
