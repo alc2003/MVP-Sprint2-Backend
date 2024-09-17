@@ -6,6 +6,12 @@ from model.paciente import Paciente, Atendimento
 
 from schemas import AtendimentoSchema
 
+  
+class CepSchema(BaseModel):
+    """ Define como deve ser a estrutura que representa a busca. Que será
+        feita apenas com base no cns do paciente.
+    """    
+    cep: str = "79000-000"
 
 class PacienteSchema(BaseModel):
     """ Define como um novo paciente a ser inserido deve ser representado

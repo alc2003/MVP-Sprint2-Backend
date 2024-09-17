@@ -6,6 +6,8 @@ from typing import Union
 
 from  model import Base, Atendimento
 
+
+
 class Paciente(Base):
     __tablename__ = 'paciente'
 

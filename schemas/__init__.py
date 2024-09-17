@@ -2,5 +2,5 @@ from schemas.atendimento import AtendimentoSchema, ListagemAtendimentosSchema, A
                                 AtendimentoBuscaSchema
 from schemas.paciente import PacienteSchema, PacienteBuscaSchema, PacienteViewSchema, \
                             ListagemPacienteSchema, PacienteDelSchema, apresenta_pacientes, \
-                            apresenta_paciente, apresenta_atendimento
+                            apresenta_paciente, apresenta_atendimento, CepSchema
 from schemas.error import ErrorSchema

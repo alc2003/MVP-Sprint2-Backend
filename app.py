@@ -1,11 +1,14 @@
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
-import random
+import random, requests
 from sqlalchemy.exc import IntegrityError
-from model import Session, Paciente, Atendimento
+from model import Session, Paciente, Atendimento, cep
 from logger import logger
 from schemas import *
 from flask_cors import CORS
+from flask import jsonify
+
+
 
 info = Info(title="Terminal de triagem", version="1.0.0")
 app = OpenAPI(__name__, info=info)
@@ -26,8 +29,25 @@ def home():
     return redirect('/openapi')
 
 
+@app.get('/consulta_cep/<cep>', tags=[paciente_tag], responses={"200": CepSchema, "400": ErrorSchema})
+def consulta_cep(cep: str):
+    """Consulta o endereço com base no CEP informado usando a API ViaCEP."""
+    try:
+        response = requests.get(f"https://viacep.com.br/ws/{cep}/json/")
+        data = response.json()
+
+        if "erro" in data:
+            return jsonify({"message": "CEP não encontrado"}), 400
+
+        # Retorna a resposta mapeada pelo modelo ViaCEPResponse
+        return jsonify(CepSchema(ViaCEPResponse(**data)).dict()), 200
+
+    except Exception as e:
+        return jsonify({"message": "Erro ao consultar o CEP"}), 400
+    
+
 @app.post('/adiciona_paciente', tags=[paciente_tag],
-          responses={"200": PacienteViewSchema, "409": ErrorSchema, "400": ErrorSchema})
+          responses={"200":  PacienteViewSchema, "409": ErrorSchema, "400": ErrorSchema})
 def add_paciente(form: PacienteSchema):
     """Adiciona um novo Paciente à base de dados
     Retorna uma representação dos pacientes e atendimentos associados.
