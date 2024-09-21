@@ -35,3 +35,14 @@ automaticamente após uma mudança no código fonte.
 ```
 
 Abra o [http://localhost:5000/#/](http://localhost:5000/#/) no navegador para verificar o status da API em execução.
+
+************
+Para dar o build do Docker utilizando a env basta basta executar o comando
+---
+docker build -t my_flask_app .
+----
+
+Para rodar o Docker utilizando o ambiente env criado basta basta executar o comando
+---
+docker scout quickview my_flask_app
+
