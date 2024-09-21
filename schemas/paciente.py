@@ -20,7 +20,6 @@ class PacienteSchema(BaseModel):
     cns: str = "11111111111"
     nome: str = "JOSERRR"
     sexo: str = "M"
-    endereco: str = "Rua tal, numero 44"
     telefone: str = "(67)999-9999"
     cep: str = "79000-000" 
     

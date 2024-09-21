@@ -58,7 +58,6 @@ def add_paciente(form: PacienteSchema):
         cns = form.cns,
         nome = form.nome,  
         sexo = form.sexo,
-        endereco = form.endereco,
         telefone = form.telefone,
         cep = form.cep)
     

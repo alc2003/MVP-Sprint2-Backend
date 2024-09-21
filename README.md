@@ -44,5 +44,5 @@ docker build -t my_flask_app .
 
 Para rodar o Docker utilizando o ambiente env criado basta basta executar o comando
 ---
-docker scout quickview my_flask_app
+docker run -d -p 5000:5000 my_flask_app
 

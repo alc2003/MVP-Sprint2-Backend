@@ -3,4 +3,3 @@ env/Lib/site-packages/blinker/__pycache__/base.cpython-312.pyc
 /log/
 */__pycache__/
 *.log*
-log/gunicorn.detailed*
